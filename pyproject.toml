@@ -13,7 +13,7 @@ dependencies = [
 aperture-server = "aperture.main:start"
 
 [tool.uv.sources]
-aperture-protos = { git = "https://github.com/NadavKahlon/aperture-protos.git" }
+aperture-protos = { git = "https://github.com/NadavKahlon/aperture-c2-protos.git" }
 
 [dependency-groups]
 dev = [

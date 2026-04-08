@@ -7,6 +7,40 @@ resolution-markers = [
 ]
 
 [[package]]
+name = "aperture"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "aperture-protos" },
+    { name = "ipython", version = "9.10.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+    { name = "ipython", version = "9.12.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "loguru" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "black" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "aperture-protos", git = "https://github.com/NadavKahlon/aperture-c2-protos.git" },
+    { name = "ipython", specifier = ">=9.10.1" },
+    { name = "loguru", specifier = ">=0.7.3" },
+]
+
+[package.metadata.requires-dev]
+dev = [{ name = "black", specifier = ">=26.3.1" }]
+
+[[package]]
+name = "aperture-protos"
+version = "0.1.0"
+source = { git = "https://github.com/NadavKahlon/aperture-c2-protos.git#d9f9e6ef082ebc3d0cd95989260a74e86c1772f0" }
+dependencies = [
+    { name = "protobuf" },
+]
+
+[[package]]
 name = "asttokens"
 version = "3.0.1"
 source = { registry = "https://pypi.org/simple" }
@@ -373,40 +407,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz", hash = "sha256:cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159", size = 159684, upload-time = "2026-02-06T19:19:40.919Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/68/5a/199c59e0a824a3db2b89c5d2dade7ab5f9624dbf6448dc291b46d5ec94d3/wcwidth-0.6.0-py3-none-any.whl", hash = "sha256:1a3a1e510b553315f8e146c54764f4fb6264ffad731b3d78088cdb1478ffbdad", size = 94189, upload-time = "2026-02-06T19:19:39.646Z" },
-]
-
-[[package]]
-name = "aperture-c2"
-version = "0.1.0"
-source = { editable = "." }
-dependencies = [
-    { name = "ipython", version = "9.10.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
-    { name = "ipython", version = "9.12.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
-    { name = "loguru" },
-    { name = "aperture-protos" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "black" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "ipython", specifier = ">=9.10.1" },
-    { name = "loguru", specifier = ">=0.7.3" },
-    { name = "aperture-protos", git = "https://github.com/NadavKahlon/aperture-protos.git" },
-]
-
-[package.metadata.requires-dev]
-dev = [{ name = "black", specifier = ">=26.3.1" }]
-
-[[package]]
-name = "aperture-protos"
-version = "0.1.0"
-source = { git = "https://github.com/NadavKahlon/aperture-protos.git#ccb5b001e2a706ece307157a66b5286ea5a83827" }
-dependencies = [
-    { name = "protobuf" },
 ]
 
 [[package]]
