@@ -1,18 +1,18 @@
 import argparse
 import threading
 
-from wheatley_c2.server.constants import (
+from aperture.server.constants import (
     WHEATLY_SERVER_PORT,
     WHEATLY_SERVER_HOST,
-    WHEATLEY_SERVER_BANNER,
-    WHEATLEY_SERVER_INTERACTIVE_BANNER,
+    APERTURE_SERVER_BANNER,
+    APERTURE_SERVER_INTERACTIVE_BANNER,
 )
-from wheatley_c2.server.server import WheatleyServer
-from wheatley_c2.server.local_shell import LocalServerShell
+from aperture.server.server import ApertureServer
+from aperture.server.local_shell import LocalServerShell
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Wheatley Command & Control Server")
+    parser = argparse.ArgumentParser(description="Aperture Command & Control Server")
     parser.add_argument(
         "-i",
         "--interactive",
@@ -23,8 +23,8 @@ def parse_args() -> argparse.Namespace:
 
 
 def start_interactive(args: argparse.Namespace):
-    print(WHEATLEY_SERVER_INTERACTIVE_BANNER)
-    server = WheatleyServer((WHEATLY_SERVER_HOST, WHEATLY_SERVER_PORT))
+    print(APERTURE_SERVER_INTERACTIVE_BANNER)
+    server = ApertureServer((WHEATLY_SERVER_HOST, WHEATLY_SERVER_PORT))
     server_thread = threading.Thread(target=server.run, daemon=True)
     server_thread.start()
     LocalServerShell(server).run()
@@ -32,8 +32,8 @@ def start_interactive(args: argparse.Namespace):
 
 
 def start_non_interactive(args: argparse.Namespace):
-    print(WHEATLEY_SERVER_BANNER)
-    server = WheatleyServer((WHEATLY_SERVER_HOST, WHEATLY_SERVER_PORT))
+    print(APERTURE_SERVER_BANNER)
+    server = ApertureServer((WHEATLY_SERVER_HOST, WHEATLY_SERVER_PORT))
     try:
         server.run()
     except KeyboardInterrupt:

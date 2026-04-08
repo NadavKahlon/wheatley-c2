@@ -4,11 +4,11 @@ from itertools import count
 
 from loguru import logger
 
-from wheatley_c2.agent.conn import AgentConnection
-from wheatley_c2.utils.network import is_socket_closed
+from aperture.agent.conn import AgentConnection
+from aperture.utils.network import is_socket_closed
 
 
-class WheatleyServer:
+class ApertureServer:
 
     address: tuple[str, int]
     agent_conns: dict[

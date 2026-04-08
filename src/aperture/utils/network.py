@@ -5,7 +5,7 @@ from google.protobuf.message import Message
 
 import socket
 
-from wheatley_protos import chunked_transfer_pb2
+from aperture_protos import chunked_transfer_pb2
 
 
 def recv_exactly(sock, size):

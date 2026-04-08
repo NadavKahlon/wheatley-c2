@@ -376,14 +376,14 @@ wheels = [
 ]
 
 [[package]]
-name = "wheatley-c2"
+name = "aperture-c2"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "ipython", version = "9.10.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
     { name = "ipython", version = "9.12.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "loguru" },
-    { name = "wheatley-protos" },
+    { name = "aperture-protos" },
 ]
 
 [package.dev-dependencies]
@@ -395,16 +395,16 @@ dev = [
 requires-dist = [
     { name = "ipython", specifier = ">=9.10.1" },
     { name = "loguru", specifier = ">=0.7.3" },
-    { name = "wheatley-protos", git = "https://github.com/NadavKahlon/wheatley-protos.git" },
+    { name = "aperture-protos", git = "https://github.com/NadavKahlon/aperture-protos.git" },
 ]
 
 [package.metadata.requires-dev]
 dev = [{ name = "black", specifier = ">=26.3.1" }]
 
 [[package]]
-name = "wheatley-protos"
+name = "aperture-protos"
 version = "0.1.0"
-source = { git = "https://github.com/NadavKahlon/wheatley-protos.git#ccb5b001e2a706ece307157a66b5286ea5a83827" }
+source = { git = "https://github.com/NadavKahlon/aperture-protos.git#ccb5b001e2a706ece307157a66b5286ea5a83827" }
 dependencies = [
     { name = "protobuf" },
 ]

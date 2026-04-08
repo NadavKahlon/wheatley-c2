@@ -2,20 +2,20 @@ from importlib.metadata import version
 
 import IPython
 
-WHEATLEY_SERVER_VERSION = version("wheatley_c2")
-WHEATLEY_SERVER_BANNER = (
+APERTURE_SERVER_VERSION = version("aperture")
+APERTURE_SERVER_BANNER = (
     f"\n"
     f"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
-    f"┃ Wheatley Command & Control Server ┃\n"
+    f"┃ Aperture Command & Control Server ┃\n"
     f"┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n"
-    f"Software version: {WHEATLEY_SERVER_VERSION}\n"
+    f"Software version: {APERTURE_SERVER_VERSION}\n"
 )
-WHEATLEY_SERVER_INTERACTIVE_BANNER = (
+APERTURE_SERVER_INTERACTIVE_BANNER = (
     f"\n"
     f"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
-    f"┃ Wheatley Command & Control Server ┃\n"
+    f"┃ Aperture Command & Control Server ┃\n"
     f"┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n"
-    f"Software version: {WHEATLEY_SERVER_VERSION}\n"
+    f"Software version: {APERTURE_SERVER_VERSION}\n"
     f"Powered by IPython {IPython.__version__}\n"
 )
 

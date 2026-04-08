@@ -4,17 +4,17 @@ from typing import TYPE_CHECKING
 from google.protobuf.json_format import ParseDict, MessageToDict
 from loguru import logger
 
-from wheatley_protos import commands_pb2
-from wheatley_c2.utils.network import (
+from aperture_protos import commands_pb2
+from aperture.utils.network import (
     send_protobuf,
     recv_protobuf,
     recv_stream,
     send_stream,
 )
-from wheatley_c2.utils import snake_to_pascal
+from aperture.utils import snake_to_pascal
 
 if TYPE_CHECKING:
-    from wheatley_c2.server.server import WheatleyServer
+    from aperture.server.server import ApertureServer
 
 
 class AgentConnection:
@@ -22,14 +22,14 @@ class AgentConnection:
     id: int
     sock: socket.socket
     address: tuple[str, int]
-    _server: "WheatleyServer"
+    _server: "ApertureServer"
 
     def __init__(
         self,
         agent_conn_id: int,
         sock: socket.socket,
         address: tuple[str, int],
-        server: "WheatleyServer",
+        server: "ApertureServer",
     ):
         self.id = agent_conn_id
         self.sock = sock

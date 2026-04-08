@@ -3,13 +3,13 @@ from typing import TYPE_CHECKING
 from IPython.terminal.embed import InteractiveShellEmbed
 
 if TYPE_CHECKING:
-    from wheatley_c2.server.server import WheatleyServer
+    from aperture.server.server import ApertureServer
 
 
 class LocalServerShell:
-    _server: "WheatleyServer"
+    _server: "ApertureServer"
 
-    def __init__(self, server: "WheatleyServer"):
+    def __init__(self, server: "ApertureServer"):
         self._server = server
 
     def _prepare_user_ns(self):

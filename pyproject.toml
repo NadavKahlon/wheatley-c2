@@ -1,19 +1,19 @@
 [project]
-name = "wheatley-c2"
+name = "aperture"
 version = "0.1.0"
-description = "Wheatley Command & Control"
+description = "Aperture Command & Control"
 requires-python = ">=3.11"
 dependencies = [
     "ipython>=9.10.1",
     "loguru>=0.7.3",
-    "wheatley-protos",
+    "aperture-protos",
 ]
 
 [project.scripts]
-wheatley-server = "wheatley_c2.main:start"
+aperture-server = "aperture.main:start"
 
 [tool.uv.sources]
-wheatley-protos = { git = "https://github.com/NadavKahlon/wheatley-protos.git" }
+aperture-protos = { git = "https://github.com/NadavKahlon/aperture-protos.git" }
 
 [dependency-groups]
 dev = [
