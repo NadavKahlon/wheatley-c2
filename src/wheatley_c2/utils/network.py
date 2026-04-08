@@ -5,7 +5,7 @@ from google.protobuf.message import Message
 
 import socket
 
-from wheatley_server.proto import stream_pb2
+from wheatley_protos import chunked_transfer_pb2
 
 
 def recv_exactly(sock, size):
@@ -54,7 +54,7 @@ def is_socket_closed(sock: socket.socket) -> bool:
 
 def recv_stream(sock: socket.socket) -> Iterator[bytes]:
     while True:
-        packet = stream_pb2.WheatleyStreamPacket()
+        packet = chunked_transfer_pb2.ChunkedTransferPacket()
         recv_protobuf(sock, packet)
         yield packet.chunk
         if packet.is_last:
@@ -66,7 +66,7 @@ def send_stream(sock: socket.socket, stream: BinaryIO, chunk_size: int = 4096) -
         chunk = stream.read(chunk_size)
         if len(chunk) == 0:
             break
-        packet = stream_pb2.WheatleyStreamPacket(chunk=chunk, is_last=False)
+        packet = chunked_transfer_pb2.ChunkedTransferPacket(chunk=chunk, is_last=False)
         send_protobuf(sock, packet)
-    packet = stream_pb2.WheatleyStreamPacket(chunk=b"", is_last=True)
+    packet = chunked_transfer_pb2.ChunkedTransferPacket(chunk=b"", is_last=True)
     send_protobuf(sock, packet)

@@ -4,8 +4,8 @@ from itertools import count
 
 from loguru import logger
 
-from wheatley_server.agent.conn import AgentConnection
-from wheatley_server.network import is_socket_closed
+from wheatley_c2.agent.conn import AgentConnection
+from wheatley_c2.utils.network import is_socket_closed
 
 
 class WheatleyServer:

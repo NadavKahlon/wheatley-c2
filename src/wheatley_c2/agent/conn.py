@@ -4,17 +4,17 @@ from typing import TYPE_CHECKING
 from google.protobuf.json_format import ParseDict, MessageToDict
 from loguru import logger
 
-from wheatley_server.proto.agent import command_pb2
-from wheatley_server.network import (
+from wheatley_protos import commands_pb2
+from wheatley_c2.utils.network import (
     send_protobuf,
     recv_protobuf,
     recv_stream,
     send_stream,
 )
-from wheatley_server.utils import snake_to_pascal
+from wheatley_c2.utils import snake_to_pascal
 
 if TYPE_CHECKING:
-    from wheatley_server.server.server import WheatleyServer
+    from wheatley_c2.server.server import WheatleyServer
 
 
 class AgentConnection:
@@ -49,14 +49,14 @@ class AgentConnection:
         if contents is None:
             contents = {}
 
-        request = command_pb2.Request()
-        sub_request = getattr(command_pb2, f"{snake_to_pascal(command_name)}Request")()
+        request = commands_pb2.Request()
+        sub_request = getattr(commands_pb2, f"{snake_to_pascal(command_name)}Request")()
         getattr(request, command_name).CopyFrom(sub_request)
         ParseDict(contents, getattr(request, command_name))
         send_protobuf(self.sock, request)
 
     def _recv_command_response(self, command_name: str) -> dict:
-        response = command_pb2.Response()
+        response = commands_pb2.Response()
         recv_protobuf(self.sock, response)
         response_command_name = response.WhichOneof("response")
         assert response_command_name == command_name

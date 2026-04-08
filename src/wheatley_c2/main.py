@@ -1,14 +1,14 @@
 import argparse
 import threading
 
-from wheatley_server.constants import (
+from wheatley_c2.server.constants import (
     WHEATLY_SERVER_PORT,
     WHEATLY_SERVER_HOST,
     WHEATLEY_SERVER_BANNER,
     WHEATLEY_SERVER_INTERACTIVE_BANNER,
 )
-from wheatley_server.server.server import WheatleyServer
-from wheatley_server.server.local_shell import LocalServerShell
+from wheatley_c2.server.server import WheatleyServer
+from wheatley_c2.server.local_shell import LocalServerShell
 
 
 def parse_args() -> argparse.Namespace:

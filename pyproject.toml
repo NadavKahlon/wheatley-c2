@@ -1,15 +1,24 @@
 [project]
-name = "wheatley-server"
+name = "wheatley-c2"
 version = "0.1.0"
-description = "Wheatley Command & Control Server"
+description = "Wheatley Command & Control"
 requires-python = ">=3.11"
 dependencies = [
-    "black>=26.3.1",
     "ipython>=9.10.1",
     "loguru>=0.7.3",
-    "mypy-protobuf>=5.0.0",
-    "protobuf>=7.34.1",
+    "wheatley-protos",
 ]
 
 [project.scripts]
-wheatley-server = "wheatley_server.main:start"
+wheatley-server = "wheatley_c2.main:start"
+
+[tool.uv.sources]
+wheatley-protos = { git = "https://github.com/NadavKahlon/wheatley-protos.git" }
+
+[dependency-groups]
+dev = [
+    "black>=26.3.1",
+]
+
+[tool.uv]
+package = true
