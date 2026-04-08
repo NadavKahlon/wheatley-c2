@@ -88,9 +88,9 @@ class AgentConnection:
         self._recv_command_response("get_file")
 
     def put_file(
-        self, local_path: str, remote_path: str, chunk_size: int = 4096
+        self, remote_path: str, local_path: str, chunk_size: int = 4096
     ) -> None:
         self._send_command_request("put_file", path=remote_path)
         with open(local_path, "rb") as f:
-            send_stream(self.sock, f)
+            send_stream(self.sock, f, chunk_size)
         self._recv_command_response("put_file")
